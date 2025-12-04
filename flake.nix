@@ -3,8 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
-    zig.url = "github:mitchellh/zig-overlay";
-    flake-utils.url = "github:numtide/flake-utils";
   };
 
   outputs = { self, nixpkgs }:

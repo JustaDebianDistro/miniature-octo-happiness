@@ -12,7 +12,7 @@
       {
         devShells.x86_64-linux.testing = pkgs.mkShell{
           NODE_ENV = "testing";
-          packages = [pkgs.zig_0_12 pkgs.sdl2 pkgs.pkg-config ];
+          packages = [pkgs.zig_0_12 pkgs.SDL2 pkgs.pkg-config ];
           shellHook = ''echo "zig + sdl2 loaded"'';
         };
       };

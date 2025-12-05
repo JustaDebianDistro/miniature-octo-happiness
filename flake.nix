@@ -9,6 +9,8 @@
     let
       pkgs = nixpkgs.legacyPackages.x86_64-linux;
       zig = import ./nix/zig-module.nix {inherit pkgs;};
+      emacs = import ./nix/emacs-module.nix {inherit pkgs zig;};
+      
     in
       {
       #  devShells = {
@@ -16,6 +18,7 @@
 
       #  };
         devShells.x86_64-linux = zig.devShells.x86_64-linux;
+        devShells.x86_64-linux = emacs.devShells.x86_64-linux;
 #        devShells.x86_64-linux.testing = pkgs.mkShell{
 #          NODE_ENV = "testing";
 #          packages = [pkgs.zig_0_12 pkgs.SDL2 pkgs.pkg-config ];

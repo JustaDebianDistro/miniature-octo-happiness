@@ -5,14 +5,17 @@ let
     echo "Zig tools loaded"
    '';
 in{
+  devShells.x86_64-linux = {
+    buildmode = pkgs.mkShell{packages = zigPkgs; inherit shellHook;};
+  };
 #  packages = zigPkgs;
   #  zig = pkgs.zig_0_12;
-  devShells.x86_64-linux.buildmode = pkgs.mkShell{
-    NODE_ENV = "BuildMODE";
-    packages = zigPkgs;
-    # shellHook = '' echo "Zig build tools loaded" '';
-    inherit shellHook;
-
-  }; 
+#  devShells.x86_64-linux.buildmode = pkgs.mkShell{
+#    NODE_ENV = "BuildMODE";
+#    packages = zigPkgs;
+#    # shellHook = '' echo "Zig build tools loaded" '';
+#    inherit shellHook;
+#
+#  }; 
 
 }

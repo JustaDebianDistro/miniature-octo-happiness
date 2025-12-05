@@ -13,11 +13,10 @@
       
     in
       {
-        devShells = {
-          buildmode = zig.devshells.x86_64-linux;
-          emacsconfig = emacs.devShells.x86_64-linux;
-
-        };
+        devShells.x86_64-linux = 
+           zig.devShells.x86_64-linux // 
+           emacs.devShells.x86_64-linux;
+        
       #  devShells.x86_64-linux = zig.devShells.x86_64-linux;
       #  devShells.x86_64-linux = emacs.devShells.x86_64-linux;
 #        devShells.x86_64-linux.testing = pkgs.mkShell{

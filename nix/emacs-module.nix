@@ -1,6 +1,6 @@
 { pkgs, zig }:
 let
-  emacsWithConfig = pkgs.emacsWithPackagesFrimUsePackage {
+  emacsWithConfig = pkgs.emacsWithPackagesFromUsePackage {
     config = ./emacs-config.el;
     package = pkgs.emacs29;
     alwaysEnsure = true;
@@ -46,11 +46,14 @@ let
     
   '';
 in{
-  devShells.x86_64-linux.emacsconfig = pkgs.mkShell{
-    NODE_ENV = "Emacs-with-config";
-    packages = [emacsWithConfig] ++ emacsTools;
-    inherit shellHook;
-
+  devShells.x86_64-linux = {
+    emacsconfig = pkgs.mkShell {packages = [emacsWithConfig] == emacsTools; inherit shellHook;};
   };
+#  devShells.x86_64-linux.emacsconfig = pkgs.mkShell{
+#    NODE_ENV = "Emacs-with-config";
+#    packages = [emacsWithConfig] ++ emacsTools;
+#    inherit shellHook;
+#
+#  };
 
 }

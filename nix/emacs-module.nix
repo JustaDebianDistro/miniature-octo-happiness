@@ -1,5 +1,5 @@
 { pkgs, zig }:
-let
+#let
 #  emacsWithConfig = pkgs.emacsWithPackages {
 #    config = ./emacs-config.el;
 #    package = pkgs.emacs29;
@@ -46,6 +46,7 @@ let
 #    
 #  '';
 #in{
+{
   devShells.x86_64-linux = {
     #    emacsconfig = pkgs.mkShell {packages = [emacsWithConfig] ++ emacsTools; inherit shellHook;};
     emacsconfig = pkgs.mkShell {
@@ -91,6 +92,7 @@ let
       shellHook = '' echo "emacs-lite-mode" '';
     };
   };
+}
 #  devShells.x86_64-linux.emacsconfig = pkgs.mkShell{
 #    NODE_ENV = "Emacs-with-config";
 #    packages = [emacsWithConfig] ++ emacsTools;

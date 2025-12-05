@@ -11,10 +11,11 @@
       zig = import ./nix/zig-module.nix {inherit pkgs;};
     in
       {
-        devShells = {
-          default = zig.shells.buildmode;
+      #  devShells = {
+      #    default = zig.shells.buildmode;
 
-        };
+      #  };
+        devShells.x86_64-linux = zig.devShells.x86_64-linux;
 #        devShells.x86_64-linux.testing = pkgs.mkShell{
 #          NODE_ENV = "testing";
 #          packages = [pkgs.zig_0_12 pkgs.SDL2 pkgs.pkg-config ];

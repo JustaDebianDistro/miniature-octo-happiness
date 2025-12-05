@@ -77,9 +77,17 @@
           org-roam
         ]))
       ];
-      shellHook = '' echo "emacs all packages loaded"'';
+      shellHook = ''
+        echo "emacs all packages loaded"
+        # Create alias
+        alias myemacs="emacs -l ./emacs-config.el"
+        
+        # Or set environment variable
+        export EMACSLOADCONFIG="./emacs-config.el"
 
+      '';
     };
+    
     emacslite = pkgs.mkShell {
       packages = [
         (pkgs.emacsWithPackages (epkgs: with epkgs; [

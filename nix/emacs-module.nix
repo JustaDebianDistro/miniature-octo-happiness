@@ -47,7 +47,7 @@ let
   '';
 in{
   devShells.x86_64-linux = {
-    emacsconfig = pkgs.mkShell {packages = [emacsWithConfig] == emacsTools; inherit shellHook;};
+    emacsconfig = pkgs.mkShell {packages = [emacsWithConfig] ++ emacsTools; inherit shellHook;};
     emacslite = pkgs.mkShell {
       packages = [
         (pkgs.emacsWithPackages (epkgs: with epkgs; [

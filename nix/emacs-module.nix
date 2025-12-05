@@ -1,6 +1,6 @@
 { pkgs, zig }:
 let
-  emacsWithConfig = pkgs.emacsWithPackagesFromUsePackage {
+  emacsWithConfig = pkgs.emacsWithPackages {
     config = ./emacs-config.el;
     package = pkgs.emacs29;
     alwaysEnsure = true;

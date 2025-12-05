@@ -72,10 +72,10 @@
           consult
           exec-path-from-shell
           direnv
+          vterm
+          pdf-tools
+          org-roam
         ]))
-        pkgs.vterm
-        pkgs.emacs29Packages.pdf-tools
-        pkgs.emacs29Packages.org-roam
       ];
       shellHook = '' echo "emacs all packages loaded"'';
 

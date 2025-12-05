@@ -48,6 +48,17 @@ let
 in{
   devShells.x86_64-linux = {
     emacsconfig = pkgs.mkShell {packages = [emacsWithConfig] == emacsTools; inherit shellHook;};
+    emacslite = pkgs.mkShell {
+      packages = [
+        (pkgs.emacsWithPackages (epkgs: with epkgs; [
+          zig-mode
+          lsp-mode
+          company
+          magit
+        ]))
+      ];
+      shellHook = '' echo "emacs-lite-mode" '';
+    };
   };
 #  devShells.x86_64-linux.emacsconfig = pkgs.mkShell{
 #    NODE_ENV = "Emacs-with-config";
